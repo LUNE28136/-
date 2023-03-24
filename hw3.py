@@ -2,7 +2,7 @@ def get_integer(prompt):
     return int(input(prompt))
 
 def get_fixed_price(price):
-    return price/((100-sale_rate)/100)
+    return int(price/((100-sale_rate)/100))
     
 def main():
     global sale_rate
