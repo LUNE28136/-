@@ -18,6 +18,10 @@ def read_number(n):
     n3=read_single_digit(n[2])
     return n1, n2, n3
 
-num=int(input('세 자리 정수 입력: '))
-read1, read2, read3=read_number(num)
-print(read1, read2, read3)
+def main():
+    n=num=int(input('세 자리 정수 입력: '))
+    read1, read2, read3=read_number(num)
+    print(read1, read2, read3)
+
+if __name__=='__main__':
+    main()
