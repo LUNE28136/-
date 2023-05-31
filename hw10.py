@@ -1,13 +1,13 @@
 import os
 import pickle
-filename='score.bin'
+filename='scores.bin'
 
 def get_integer(prompt):
     return int(input(prompt))
 
 def get_average(s):
     total=sum(s)
-    return total/len(s)
+    if len(s)>0: return total/len(s)
 
 def input_scores():
     s=[]
@@ -43,21 +43,16 @@ def save_data(fp):
 
 def load_data(fp):
     with open(fp,'rb') as file:
-        scores=pickle.load(file)
-        return scores
+        s=pickle.load(file)
+        return s
 
-def main():
-    scores=[]
-    if os.path.exists(filename):
-        scores=load_data(filename)
-        print('[파일 읽기]')
-        print()
-    else:
-        scores=input_scores()
+scores=[]
+if os.path.exists(filename):
+    scores=load_data(filename)
+    print('[파일 읽기]')
+    print()
+else:
+    scores=input_scores()
     
-    show_scores(scores)
-    save_data(filename)
-
-# 주 프로그램부
-if __name__ == '__main__':
-    main()
+show_scores(scores)
+save_data(filename)
